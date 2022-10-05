@@ -1,41 +1,45 @@
 {% extends "fuel_list/base.html" %}
 
 {% block content %}
+{% if error %}
+<div>
+    <mark>{{ error }}</mark>
+</div>
+{% endif %}
 <div class="container m-10">
     <div class="text-center">
-        <h2>Ціни на пальне в Україні</h2>
+        <h2>Ціни на пальне в Україні станом на {{date}}</h2>
     </div>
 </div>
-
-<div class="container">
-    <table class="table table-hover table-dark">
+<div class="scroll-table">
+    <table>
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Имя</th>
-            <th scope="col">Фамилия</th>
-            <th scope="col">Username</th>
+            <th scope="col">Назва АЗС</th>
+            <th scope="col">ГАЗ</th>
+            <th scope="col">ДП</th>
+            <th scope="col">95</th>
+            <th scope="col">95+</th>
+            <th scope="col">92</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
     </table>
+    <div class="scroll-table-body">
+        <table>
+            <tbody>
+            {% for d in data %}
+
+            <tr>
+                <td>{{d.title}}</td>
+                <td>{{d.gas}}</td>
+                <td>{{d.dp}}</td>
+                <td>{{d.nf}}</td>
+                <td>{{d.nf_plus}}</td>
+                <td>{{d.nt}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}

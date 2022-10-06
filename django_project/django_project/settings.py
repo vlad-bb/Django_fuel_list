@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-a-al&x$-i=$wyejv258$gq35_u-6y)4b^c48x64)24f15!s=#y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'fuel-list-2022.fly.dev', '0.0.0.0', 'fly.io/apps/fuel-list-2022', '127.0.0.1']
 
+# CSRF_TRUSTED_ORIGINS = ['fuel-list-2022.fly.dev']
 # Application definition
 
 INSTALLED_APPS = [
@@ -71,12 +72,35 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# # Standart
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'fl.sqlite3',
+#     }
+# }
+
+# Elephant Cloud Database
 DATABASES = {
+
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'fl.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'usilkuph',
+
+        'USER': 'usilkuph',
+
+        'PASSWORD': 'pWEYlcDg11DJ6NIVqyaa6wYc-na-8yf7',
+
+        'HOST': 'jelani.db.elephantsql.com',
+
+        'PORT': '5432',
+
     }
+
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

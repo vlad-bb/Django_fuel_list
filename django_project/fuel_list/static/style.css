@@ -8,7 +8,7 @@
 .scroll-table table {
 	width:100%;
 	table-layout: fixed;
-	border: none;
+	border: 1px solid #ddd;
 }
 .scroll-table thead th {
 	font-weight: bold;
@@ -21,7 +21,7 @@
 	border-right: 1px solid #ddd;
 }
 .scroll-table tbody td {
-	text-align: center;
+	text-align: left;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	padding: 10px 15px;

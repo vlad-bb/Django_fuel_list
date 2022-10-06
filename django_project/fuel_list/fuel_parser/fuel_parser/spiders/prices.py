@@ -4,8 +4,8 @@ import scrapy
 from datetime import datetime
 from scrapy.crawler import CrawlerProcess
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent.parent
-file = Path(BASE_DIR).joinpath(Path('django_project/fuel_list/utils/data.txt'))
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
+file = Path(BASE_DIR).joinpath(Path('utils/data.txt'))
 
 
 class PricesSpider(scrapy.Spider):
@@ -142,7 +142,7 @@ class PricesSpider(scrapy.Spider):
 def main():
     process = CrawlerProcess()
     process.crawl(PricesSpider)
-    process.start(False, False)
+    process.start()
 
 
 if __name__ == '__main__':

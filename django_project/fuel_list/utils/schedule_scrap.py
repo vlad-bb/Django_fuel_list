@@ -1,20 +1,27 @@
 import schedule
 import time
 from django_project.fuel_list.fuel_parser.fuel_parser.spiders.prices import main as parser
-from scrapy.crawler import CrawlerProcess
+from multiprocessing import Process
+
+
+def worker(pars):
+    print('Worker starting')
+    pr = Process(target=parser)
+    pr.start()
+    pr.join()
 
 
 def main():
-    parser()
+    schedule.every().day.at("15:00").do(worker, parser)
+    # schedule.every().day.at("20:21").do(worker, parser)
+    # schedule.every().day.at("20:23").do(worker, parser)
+    # schedule.every(1).minutes.do(worker, parser)
     print('Spider working now')
-
-
-# schedule.every().day.at("14:00").do(main)
-schedule.every(1).minutes.do(main)
+    while True:
+        schedule.run_pending()
 
 
 if __name__ == '__main__':
-    while True:
-        schedule.run_pending()
-        time.sleep(60)
+    main()
+
 

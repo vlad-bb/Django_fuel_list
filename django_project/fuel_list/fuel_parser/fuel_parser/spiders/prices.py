@@ -2,7 +2,9 @@ import pickle
 from pathlib import Path
 import scrapy
 from datetime import datetime
-from scrapy.crawler import CrawlerProcess
+from scrapy.crawler import CrawlerRunner
+from scrapy.utils.log import configure_logging
+from twisted.internet import reactor
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 file = Path(BASE_DIR).joinpath(Path('utils/data.txt'))
@@ -140,9 +142,11 @@ class PricesSpider(scrapy.Spider):
 
 
 def main():
-    process = CrawlerProcess()
-    process.crawl(PricesSpider)
-    process.start()
+    configure_logging({'LOG_FORMAT': '%(levelname)s: %(message)s'})
+    runner = CrawlerRunner()
+    d = runner.crawl(PricesSpider)
+    d.addBoth(lambda _: reactor.stop())
+    reactor.run()
 
 
 if __name__ == '__main__':

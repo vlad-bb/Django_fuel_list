@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'fuel_list.apps.FuelListConfig',
+    'fuel_list',
 ]
 
 MIDDLEWARE = [

@@ -29,15 +29,18 @@ ALLOWED_HOSTS = ['localhost', 'fuel-list-2022.fly.dev', '0.0.0.0', 'fly.io/apps/
 # CSRF_TRUSTED_ORIGINS = ['fuel-list-2022.fly.dev']
 # Application definition
 
+EASY_MAPS_GOOGLE_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
+
 INSTALLED_APPS = [
+    'fuel_list.apps.FuelListConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'fuel_list.apps.FuelListConfig',
-    'fuel_list',
+    'easy_maps',
+
 ]
 
 MIDDLEWARE = [
@@ -101,7 +104,6 @@ DATABASES = {
     }
 
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

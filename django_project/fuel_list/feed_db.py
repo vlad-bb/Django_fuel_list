@@ -1,11 +1,16 @@
 import django
 import os
 import pickle
-from .models import Price
+from models import Price
 # os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_project.settings")
 # django.setup()
-
-
+# from setuptools import setup, find_packages
+#
+# setup(
+#     name='utils',
+#     packages=find_packages()
+# )
+#
 file = 'utils/data.txt'
 
 
@@ -21,6 +26,7 @@ def feed_db(file_name):
             feed.nf = d['nf']
             feed.nf_plus = d['nf_plus']
             feed.nt = d['nt']
+            feed.save()
 
 
 if __name__ == '__main__':

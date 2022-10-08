@@ -1,3 +1,4 @@
+
 from django.db import models
 
 
@@ -12,3 +13,6 @@ class Price(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+
+

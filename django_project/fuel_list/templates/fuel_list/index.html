@@ -1,6 +1,7 @@
 {% extends "fuel_list/base.html" %}
 
 {% block content %}
+{% load easy_maps_tags %}
 {% if error %}
 <div>
     <mark>{{ error }}</mark>
@@ -42,4 +43,5 @@
         </table>
     </div>
 </div>
+{% easy_map "Ukraine, Odessa, Filatova 2" 300 400 %}
 {% endblock %}

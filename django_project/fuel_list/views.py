@@ -2,8 +2,7 @@ import pickle
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.template import loader
-from .fuel_parser.fuel_parser.spiders.prices import file, main as parser
+from .fuel_parser.fuel_parser.spiders.prices import file
 
 
 def index(request):

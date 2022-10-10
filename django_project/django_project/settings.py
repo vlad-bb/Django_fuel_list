@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['localhost', 'fuel-list-2022.fly.dev', '0.0.0.0', 'fly.io/apps/
 # CSRF_TRUSTED_ORIGINS = ['fuel-list-2022.fly.dev']
 # Application definition
 
-EASY_MAPS_GOOGLE_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
+
 
 INSTALLED_APPS = [
     'fuel_list.apps.FuelListConfig',
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'easy_maps',
+
 
 ]
 
